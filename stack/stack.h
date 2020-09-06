@@ -5,19 +5,18 @@ typedef void* Stack;
 typedef void* StackElement;
 
 /*
- * Nota: essa é uma implementação extremamente
- * trivial de uma pilha em C. 
- * As funções Push e Pop tem tempo O(n), mas
- * podem ser facilmente otimizadas para O(1) implementando
- * uma lista duplamente encadeada, ao invés de
- * unicamente encadeada. 
- */ 
+ * Implementação trivial de pilha em C, utilizando double-linked list 
+ * Funções de push, pop, e create levam tempo O(1)
+ * Funções dump e free levam tempo tempo O(n)
+*/ 
 
 //Istancia a pilha.
 //O parametro da funcao é o endereço da pilha
+//Retorna -1 se houve erro na criação, 0 com êxito
 int stackCreate(Stack *);
 
 //Insere um elemento na pilha
+//Retorna -1 se houve erro na criação, 0 com êxito
 int stackPush(Stack, StackElement);
 
 //Retira um elemento da pilha, e o devolve
