@@ -28,7 +28,7 @@ int stackCreate(Stack *stck){
 
 	//Aloca espaço para a pilha, e retorna -1 se malloc der erro
 	*s = malloc(sizeof(struct stack));
-	if(!s){
+	if(!(*s)){
 		return -1;
 	}
 

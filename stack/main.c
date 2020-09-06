@@ -13,7 +13,9 @@ int main(){
 		stackPush(s, (void*)x[i]);
 	}
 
-	stackDump(s);
+	*x[7] = 100;
+	
+/*	stackDump(s);
 	y = stackPop(s);
 	if(!y){
 		printf("nao Y\n");
@@ -23,12 +25,12 @@ int main(){
 	if(!s){
 		printf("nao S\n");
 	}
-/*
+*/
 	for(int i=0;i<60;i++){
 		y = stackPop(s);
 		printf("%d\n", *y);
 	}
 	stackFree(&s);
-*/
+
 	return 0;
 }
