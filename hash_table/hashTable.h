@@ -1,8 +1,6 @@
 #ifndef HASH_TABLE
 #define HASH_TABLE
 
-//	Funções referentes à Tabela de Espalhamento
-
 #include<stdbool.h>
 #include<stdarg.h>
 
@@ -27,7 +25,7 @@ Info getPrimeiroRegistro(HashTable, char* key);
 //Retorna um vetor com todos os registros referentes à chave;
 //Pré-requisito: tabela existe e chave não nula;
 //Pós condição: -;
-//Nota: O vetor é alocado na memória, portanto é necessário dar free() no ponteiro retonado.
+//Nota: O vetor é alocado na memória, portanto é necessário dar free() no ponteiro retornado.
 Info* getVetorRegistros(HashTable, char* key, int* tamanhoDoVetor);
 
 //Exclui a chave 'key' da tabela, e retorna a posição excluída (-1 caso não encontre);
@@ -49,4 +47,6 @@ void HshTblMap(HashTable, void (*func)(Info, va_list), ...);
 //Pré-requisito: tabela existe;
 //Pós condição: tabela não existe mais.
 void* hashtableFinalizar(HashTable);
+
+void printTable(HashTable tabela);
 #endif

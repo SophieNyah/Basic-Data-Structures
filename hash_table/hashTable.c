@@ -88,7 +88,13 @@ bool existeChave(HashTable tab, char* key){
     if(essa->reg[posic].reg == NULL){
         return false;
     }
-    return true;
+    struct registrado *aux = essa->reg[posic].reg;
+    while(aux){
+        if(strcmp(aux->key, key)==0)
+            return true;
+        aux = aux->next;
+    }
+    return false;
 }
 
 Info getPrimeiroRegistro(HashTable tabela, char* key){
@@ -104,7 +110,7 @@ Info getPrimeiroRegistro(HashTable tabela, char* key){
             return NULL;
     }
 
-    return essa->reg[posic].reg->info;
+    return aux->info;
 }
 Info* getVetorRegistros(HashTable tabela, char* key, int *tamanhoVetor){
     if(!existeChave(tabela, key)){
@@ -217,4 +223,21 @@ void* hashtableFinalizar(HashTable tabela){
     free(essa);
     essa = NULL;
     return essa;
+}
+
+void printTableKeys(HashTable tabela){
+    struct tabela *table = tabela;
+    if(!table)
+        { return; }
+
+    struct registrado *aux;
+    for(int i=0;i<table->tamanho;i++){
+        aux = table->reg[i].reg;
+        printf("{ ");
+        while(aux){
+            printf("('%s') -> ", aux->key);
+            aux = aux->next;
+        }
+        printf(" }\n");
+    }
 }
